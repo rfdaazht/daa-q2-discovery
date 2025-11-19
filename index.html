@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery - Shortest Path Finder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="control-panel">
+            <div class="mode-indicator" id="modeIndicator">
+                Mode: Default
+            </div>
+
+            <div class="control-section">
+                <h3>Controls</h3>
+                <button class="btn btn-capsule" onclick="app.setMode('addNode')">Add Node</button>
+                <button class="btn btn-capsule" onclick="app.setMode('addEdge')">Add Edge</button>
+                <button class="btn btn-capsule" onclick="app.setMode('selectStart')">Select Start</button>
+                <button class="btn btn-capsule" onclick="app.setMode('selectEnd')">Select End</button>
+            </div>
+
+            <div class="control-section">
+                <h3>Algorithm</h3>
+                <button class="btn btn-primary" onclick="app.runDijkstra()">Find Shortest Path</button>
+                <button class="btn btn-danger" onclick="app.clearAll()">Clear All</button>
+            </div>
+
+            <div class="control-section no-margin">
+                <h3>Legend</h3>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffffff;"></div>
+                        <span>Normal Node</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #212121;"></div>
+                        <span>Start Node</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffdd00;"></div>
+                        <span>End Node</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #e0e0e0;"></div>
+                        <span>Visited</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #9e9e9e;"></div>
+                        <span>Shortest Path</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="algorithm-info">
+                <h3>Dijkstra Algorithm</h3>
+                <p><strong>Time:</strong> O((V + E) log V)</p>
+                <p><strong>Space:</strong> O(V)</p>
+                <p><strong>Type:</strong> Shortest path finder for weighted graphs with non-negative edges.</p>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <div class="top-bar">
+                <div class="app-title">Discovery</div>
+            </div>
+
+            <div class="canvas-wrapper">
+                <div class="canvas-container">
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat-card">
+                        <h4>Total Nodes</h4>
+                        <div class="value" id="nodeCount">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Total Edges</h4>
+                        <div class="value" id="edgeCount">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Shortest Distance</h4>
+                        <div class="value" id="shortestDistance">-</div>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Execution Time</h4>
+                        <div class="value" id="executionTime">-</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/graph.js"></script>
+    <script src="js/dijkstra.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
